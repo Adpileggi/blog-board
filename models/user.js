@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require.require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
@@ -30,8 +30,7 @@ User.init(
             },
         },
         sequelize,
-        timestamps:false,
-        modelName: 'User'
+        timestamps: false,
     }
 );
 

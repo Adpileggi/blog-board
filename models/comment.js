@@ -1,12 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./user');
 
 class Comment extends Model {}
 
 Comment.init (
     {
-        content: {
+        contents: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -14,8 +13,7 @@ Comment.init (
     {
         sequelize,
         timestamps: true,
-        modelName: 'comment'
     }
 );
 
-module.exports = User;
+module.exports = Comment;
