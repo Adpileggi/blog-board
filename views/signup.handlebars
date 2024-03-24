@@ -1,2 +1,40 @@
-{{!-- prompt to create username and password --}}
-{{!-- saves credentals and logs in --}}
+<div>
+    <form class ="form signup-form">
+    {{!-- prompt to create username and password --}}
+        <h2>Sign Up</h2>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input class="form-input" type="text" id="username"/>
+        </div>
+        <div class = "form-group">
+            <label for="password">Password:</label>
+            <input class="form-input" type="password" id="password">
+        </div>
+    {{!-- saves credentals and logs in --}}
+        <div class="form-group">
+            <button type="submit">Sign up</button>
+        </div>
+    </form>
+
+    {{!-- log in for existing users --}}
+    <div class="login-card">
+        <h2 class="page-title">Login</h2>
+        <form class="form login-form">
+        <div class="form-group">
+            <label for="username-login">Username:</label>
+            <input class="form-input" type="text" id="username-login" />
+        </div>
+        <div class="form-group">
+            <label for="password-login">Password:</label>
+            <input class="form-input" type="password" id="password-login" />
+        </div>
+        <div class="form-group">
+            <button class="btn" type="submit">Login</button>
+        </div>
+        </form>
+    </div>
+
+{{!-- link script to this page --}}
+<script src="/js/login.js"></script>
+
+</div>
