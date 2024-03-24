@@ -8,4 +8,6 @@ router.get('/', async (req, res) => {
     });
 })
 
+// find all from gallery example
+
 // get route for a single post
