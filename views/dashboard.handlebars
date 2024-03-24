@@ -14,12 +14,18 @@
         <p>
             {{post.contents}}
         </p>
+    <div>
+        {{!-- add username to display with comments--}}
+        {{comments.contents}}
+    </div>
+        <a href="/Create">Create a new Post</a>
         <a href="/update">Update Post</a>
+        <a href="/delete">Delete Post</a>
     </div>
 </div>
 
 {{!-- display post from a the logged in user --}}
 {{!-- option to add a new blog post --}}
-{{!-- leads to new page to make a new blog post --}}
+{{!-- leads to new page to make a new blog post new post page or anthoner partial --}}
 {{!-- option to delete or update a post and returns user to an updated dashboard --}}
 {{!-- must be logged in to see this page --}}
