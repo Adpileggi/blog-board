@@ -1,0 +1,19 @@
+<div>
+    <div>
+        <h2>Home</h2>
+    </div>
+    {{#each posts as |post|}}
+    {{!-- make div clickable to show contents and create comments --}}
+    <div>
+        <p>
+            {{post.id}}.
+            {{post.title}}
+            {{post.createdAt}}
+        </p>
+    </div>
+</div>
+
+{{!-- display post from all users --}}
+{{!-- when a user click on the a blog post they will then see the contents --}}
+{{!-- add an option to add comments --}}
+{{!-- can see this page when logged out --}}
