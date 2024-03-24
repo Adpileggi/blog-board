@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <h2>Current Post</h2>
+    </div>
+    {{#each posts as |post|}}
+    <div>
+        <p>
+            {{post.id}}.
+            {{!-- display username of post creator --}}
+            {{post.title}}
+            {{post.createdAt}}
+        </p>
+    </div>
+    <div>
+        <p>
+            {{post.contents}}
+        </p>
+        {{!-- show existing comments for the post --}}
+        {{!-- add an option to leave a comment --}}
+    </div>
+</div>
