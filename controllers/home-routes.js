@@ -8,14 +8,17 @@ router.get('/', async (req, res) => {
             include: [
                 {
                     model: Post,
-                    attributes: ['title']
+                    attributes: ['title', 'createdAt']
                 },
             ],
         });
-
+       // console.log("Data: ", postData);
+        
         const posts = postData.map((post) => 
-        post.get({ plain: true })
+            post.get({ plain: true })
         );
+
+        console.log("Serialized Data: ", posts);
 
         res.render('home', {posts} )
     } catch (err) {
@@ -41,5 +44,11 @@ router.get('/login,', (req, res) => {
     }
     res.render('login');
 });
+
+
+// router.get('/test', (req, res) => {
+//     console.log("Hit Test Route");
+//     res.render('test');
+// });
 
 module.exports = router
