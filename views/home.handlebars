@@ -5,12 +5,12 @@
     {{#each posts as |post|}}
     {{!-- make div clickable to lead to post.handlebars --}}
     <div>
-        <p>
-            {{post.id}}.
-            {{post.title}}
-            {{post.createdAt}}
-        </p>
-    </div>
+        {{#each post.Posts as |item| }}
+        <p>{{item.title}}</p>
+        <p>Created by: {{post.name}} on {{item.createdAt}}</p>
+        {{/each }}
+    </div> 
+    {{/each }}
 </div>
 
 {{!-- display post from all users --}}
