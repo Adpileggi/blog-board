@@ -17,27 +17,16 @@ router.get('/', async (req, res) => {
         const posts = postData.map((post) => 
             post.get({ plain: true })
         );
-
         console.log("Serialized Data: ", posts);
-
-        res.render('home', {posts} )
+        
+        res.render('home', {posts, loggedIn: req.session.loggedIn} )
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
     }
 });
 
-    // {
-    //         posts,
-    //         loggedIn: req.session.loggedIn,
-    //     }
-// find all from gallery example
-
-// get route for a single post
-
-// login route
-
-router.get('/login,', (req, res) => {
+router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
