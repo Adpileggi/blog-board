@@ -28,7 +28,14 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        const postData = await Post.findAll();
+        const postData = await Post.findAll({
+            inclue: [
+                {
+                    model:User,
+                    attributes: ['username']
+                }
+            ]
+        });
         console.log(postData)
 
         const post = postData.map((post) =>
