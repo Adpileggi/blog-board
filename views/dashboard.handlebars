@@ -2,21 +2,16 @@
     <div>
         <h2>Dashboard</h2>
     </div>
-    {{#each posts as |post|}}
     <div>
-        <p>
-            {{post.id}}.
-            {{post.title}}
-            {{post.createdAt}}
-        </p>
+        {{#each post as |post|}}
+        <p>{{post.title}} created on {{post.createdAt}}</p>
+        <p>{{post.contents}}</p>
+        {{/each }}
     </div>
-    <div>
-        <p>
-            {{post.contents}}
-        </p>
-    <div>
-        {{!-- add username to display with comments--}}
-        {{comments.contents}}
+</div>
+
+
+    
     </div>
         <a href="/Create">Create a new Post</a>
         <a href="/update">Update Post</a>
@@ -24,7 +19,6 @@
     </div>
 </div>
 
-{{!-- display post from a the logged in user --}}
 {{!-- option to add a new blog post --}}
 {{!-- leads to new page to make a new blog post new post page or anthoner partial --}}
 {{!-- option to delete or update a post and returns user to an updated dashboard --}}
