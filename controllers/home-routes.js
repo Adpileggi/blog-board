@@ -28,8 +28,8 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        const userDb = await User.findByPk(req.session.username, {
-            inclue: [
+        const userDb = await User.findByPk(req.session.userPk, {
+            include: [
                 {
                     model: Post,
                     attributes: [
@@ -40,11 +40,12 @@ router.get('/dashboard', async (req, res) => {
                 },
             ],
         });
-        console.log(userDb)
+        console.log(userDb.Posts)
 
         const userData = userDb.get({ plain: true });
 
         console.log('in the dashboard route')
+        console.log('--------------------------------', userData);
 
         res.render('dashboard', {userData, loggedIn: req.session.loggedIn} );
     } catch(err) {

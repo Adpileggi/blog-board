@@ -9,13 +9,22 @@ router.post('/', async (req, res) => {
             password: req.body.password
         });
 
+        const userDb = await User.findOne({
+            where: {
+                name: req.body.username,
+            },
+        });
+        console.log(userDb.id);
+
         req.session.save(() => {
             req.session.loggedIn = true;
-            // req.session.username = req.body.username;
+            req.session.userPk = userDb.id;
             
             res.status(200).json(newUser);
             
+            console.log("-----------------------------------", req.session.userPk)
         });
+
     } catch {
         console.log(err);
         res.status(500).json(err);
