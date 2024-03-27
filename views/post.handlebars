@@ -1,12 +1,13 @@
 <p>Test</p>
 <div>
-    <p>{{posts.title}} Created on {{posts.createdAt}} by {{posts.user.name}}</p>
+    <p>{{posts.title}} Created on {{posts.createdAt}} by {{posts.User.name}}</p>
     <p>{{posts.contents}}</p>
 </div>
 <div>
     <div>
         <p>Comments:</p>
         {{#each posts.Comments as |comment|}}
+        <p>{{comment.User.name}} commented:</p>
         <p>{{comment.contents}}</p>
         {{/each}}
     </div>

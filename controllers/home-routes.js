@@ -29,14 +29,14 @@ router.get('/post/:id', async (req, res) => {
                     model: Comment,
                     attributes: [
                         'contents',
-                        'id'
+                        'UserId'
                     ],
+                    include: User,
                 },
                 {
                     model: User,
                     attributes: [
                         'name',
-
                     ],
                 },
             ],
@@ -45,6 +45,7 @@ router.get('/post/:id', async (req, res) => {
         console.log('Data: ', postDb);
 
         const posts = postDb.get({ plain: true });
+
         console.log('cooked data:::::::', posts);
 
         res.render('post', { posts, loggedIn: req.session.loggedIn });
@@ -90,11 +91,5 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
-
-
-// router.get('/test', (req, res) => {
-//     console.log("Hit Test Route");
-//     res.render('test');
-// });
 
 module.exports = router
