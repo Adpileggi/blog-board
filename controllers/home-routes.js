@@ -1,18 +1,12 @@
 const router = require('express').Router();
-const { Post, User, } = require('../models');
+const { Post, User, Comment, } = require('../models');
 
 // get route to all post
 router.get('/', async (req, res) => {
     try {
-        const postData = await User.findAll({
-            include: [
-                {
-                    model: Post,
-                    attributes: ['title', 'createdAt']
-                },
-            ],
-        });
-       // console.log("Data: ", postData);
+        const postData = await Post.findAll({});
+
+       console.log("Data: ", postData);
         
         const posts = postData.map((post) => 
             post.get({ plain: true })
@@ -26,6 +20,32 @@ router.get('/', async (req, res) => {
     }
 });
 
+// route to view a single post
+router.get('/post/:id', async (req, res) => {
+    try {
+        const postDb = await Post.findByPk(req.params.id, {
+            include: [
+                {
+                    model: Comment,
+                    attributes: [
+                        'contents',
+                        'id'
+                    ],
+                },
+            ],
+        });
+
+        console.log('Data: ', postDb.Comments);
+
+        const post = postDb.get({ plain: true });
+        console.log('cooked data:::::::', post)
+        res.render('post', { post, loggedIn: req.session.loggedIn });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    };
+});
+
 router.get('/dashboard', async (req, res) => {
     try {
         const userDb = await User.findByPk(req.session.userPk, {
@@ -33,6 +53,7 @@ router.get('/dashboard', async (req, res) => {
                 {
                     model: Post,
                     attributes: [
+                    'id',
                     'title', 
                     "contents", 
                     "createdAt"
