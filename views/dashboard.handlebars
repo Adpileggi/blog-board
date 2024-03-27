@@ -2,12 +2,15 @@
     <div>
         <h2>Dashboard</h2>
     </div>
+    {{#each userData.Posts as |userPost|}}
+    {{!-- make div clickable to lead to post.handlebars --}}
     <div>
-        {{#each post as |post|}}
-        <p>{{post.title}} created on {{post.createdAt}}</p>
-        <p>{{post.contents}}</p>
-        {{/each }}
-    </div>
+        <p>{{userPost.title}} created on {{userPost.createdAt}}</p>
+        <p>{{userPost.contents}} </p>
+    </div> 
+    {{/each }}
+</div>
+
 </div>
 
 

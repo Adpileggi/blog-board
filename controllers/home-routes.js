@@ -28,21 +28,26 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', async (req, res) => {
     try {
-        const postData = await Post.findAll({
-            inclue: [
+        const userDb = await User.findByPk(req.session.userPk, {
+            include: [
                 {
-                    model:User,
-                    attributes: ['username']
-                }
-            ]
+                    model: Post,
+                    attributes: [
+                    'title', 
+                    "contents", 
+                    "createdAt"
+                    ],
+                },
+            ],
         });
-        console.log(postData)
+        console.log(userDb.Posts)
 
-        const post = postData.map((post) =>
-        post.get({ plain: true }))
+        const userData = userDb.get({ plain: true });
 
         console.log('in the dashboard route')
-        res.render('dashboard', {post, loggedIn: req.session.loggedIn} );
+        console.log('--------------------------------', userData);
+
+        res.render('dashboard', {userData, loggedIn: req.session.loggedIn} );
     } catch(err) {
         console.log(err);
         res.status(500).json(err)
