@@ -1,1 +1,19 @@
-<p>test testaafdawe</p>
+<p>Test</p>
+<div>
+    <p>{{posts.title}} Created on {{posts.createdAt}} by {{posts.user.name}}</p>
+    <p>{{posts.contents}}</p>
+</div>
+<div>
+    <div>
+        <p>Comments:</p>
+        {{#each posts.Comments as |comment|}}
+        <p>{{comment.contents}}</p>
+        {{/each}}
+    </div>
+    {{#if loggedIn}}
+        <a href="create-comment">Leave A comment!</a>
+        <button id="logout">Logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}} 
+</div>

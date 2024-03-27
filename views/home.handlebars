@@ -5,10 +5,8 @@
     {{#each posts as |post|}}
     {{!-- make div clickable to lead to post.handlebars --}}
     <a href="/post/{{post.id}}">
-        <div>
-            <p>{{post.title}} Created on {{post.createdAt}}</p>
-        </div>
-    </a> 
+    {{> post-details}}
+    </a>
         {{/each }}
 </div>
 

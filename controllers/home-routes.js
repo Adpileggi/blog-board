@@ -32,14 +32,22 @@ router.get('/post/:id', async (req, res) => {
                         'id'
                     ],
                 },
+                {
+                    model: User,
+                    attributes: [
+                        'name',
+
+                    ],
+                },
             ],
         });
 
-        console.log('Data: ', postDb.Comments);
+        console.log('Data: ', postDb);
 
-        const post = postDb.get({ plain: true });
-        console.log('cooked data:::::::', post)
-        res.render('post', { post, loggedIn: req.session.loggedIn });
+        const posts = postDb.get({ plain: true });
+        console.log('cooked data:::::::', posts);
+
+        res.render('post', { posts, loggedIn: req.session.loggedIn });
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
