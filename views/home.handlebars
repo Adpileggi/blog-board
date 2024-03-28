@@ -4,13 +4,10 @@
     </div>
     {{#each posts as |post|}}
     {{!-- make div clickable to lead to post.handlebars --}}
-    <div>
-        {{#each post.Posts as |item| }}
-        <p>{{item.title}}</p>
-        <p>Created by: {{post.name}} on {{item.createdAt}}</p>
+    <a href="/post/{{post.id}}">
+    {{> post-details}}
+    </a>
         {{/each }}
-    </div> 
-    {{/each }}
 </div>
 
 {{!-- display post from all users --}}
