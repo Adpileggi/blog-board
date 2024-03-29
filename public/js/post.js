@@ -14,7 +14,7 @@ const postCreateHandler = async (event) => {
         console.log(response)
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert('failed to create post');
         }
@@ -39,9 +39,13 @@ const postUpdateHandler = async (event) => {
 
         console.log(response)
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/dashboard');
         } else {
             alert('failed to update')
         }
     }
 };
+
+const postDeleteHandler = async (event) => {
+    
+}

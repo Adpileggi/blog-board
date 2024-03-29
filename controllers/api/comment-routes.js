@@ -11,6 +11,8 @@ router.post('/', async (req, res) => {
 
         console.log(newComment);
 
+        // res.render('')
+
     } catch(err) {
         console.log(err);
         res.status(500).json(err);

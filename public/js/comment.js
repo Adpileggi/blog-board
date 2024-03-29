@@ -4,8 +4,6 @@ const commentFormHandler = async (event) => {
 
     const contents = document.querySelector('#comment-text').value.trim();
 
-    const currentPost = req.session.postID
-
     console.log(contents);
 
     if (contents) {
@@ -16,7 +14,7 @@ const commentFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/post');
+            document.location.replace('/');
         } else {
             alert('Cannot add comment');
         }
