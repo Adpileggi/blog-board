@@ -47,7 +47,7 @@ router.get('/post/:id', async (req, res) => {
         req.session.save(() =>{
             req.session.postId = postDb.id
 
-            // console.log(req.session)
+            console.log(req.session)
             
         });
 

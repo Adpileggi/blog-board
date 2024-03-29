@@ -1,7 +1,7 @@
 // const { response } = require("express");
 
 const commentFormHandler = async (event) => {
-    
+
     event.preventDefault();
 
     const contents = document.querySelector('#comment-text').value.trim();
@@ -24,4 +24,4 @@ const commentFormHandler = async (event) => {
     }
 };
 
-document.querySelector('.new-comment').addEventListener('submit', commentFormHandler)
+document.querySelector('.comment-form').addEventListener('submit', commentFormHandler)

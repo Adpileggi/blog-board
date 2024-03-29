@@ -13,26 +13,25 @@
     </div>
 
     {{#if loggedIn}}
-        <form class="comment-form">
+    <form class="comment-form">
 
-    <div class="new-comment">
+        <div class="new-comment">
 
-        <div>
-            <label for="comment-text">Leave a Comment</label>
-            <textarea id="comment-text" rows="5" cols="70"></textarea>
+            <div>
+                <label for="comment-text">Leave a Comment</label>
+                <textarea id="comment-text" rows="5" cols="70"></textarea>
+            </div>
+
+            <div>
+                <button type="submit">Add Comment</button>
+            </div>
+
         </div>
 
-        <div>
-            <button type="submit">Add Comment</button>
-        </div>
+    </form>    
 
-    </div>
-
-</form>    
-
-{{!-- link script --}}
-
-<script scr="/js/comment.js"></script>
+        {{!-- link script --}}
+        <script scr="/js/comment.js"></script>
         {{else}}
         <a href="/login">Login</a>
         {{/if}} 
