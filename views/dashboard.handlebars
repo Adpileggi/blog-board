@@ -8,19 +8,17 @@
         <p>{{userPost.title}} created on {{userPost.createdAt}}</p>
         <p>{{userPost.contents}} </p>
     </div> 
+    <div>
+        <a href="/update/{{userPost.id}}">Update Post</a>
+        <a href="api/post/delete/{{userPost.id}}">Delete Post</a>
+    </div>
     {{/each }}
-</div>
-
-</div>
-
-
-    
     </div>
-        <a href="/Create">Create a new Post</a>
-        <a href="/update">Update Post</a>
-        <a href="/delete">Delete Post</a>
+        <a href="/create">Create a new Post</a>
     </div>
 </div>
+
+<script src="/js/post.js"></script>
 
 {{!-- option to add a new blog post --}}
 {{!-- leads to new page to make a new blog post new post page or anthoner partial --}}

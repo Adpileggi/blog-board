@@ -1,10 +1,10 @@
-// const { response } = require("express");
-
 const commentFormHandler = async (event) => {
 
     event.preventDefault();
 
     const contents = document.querySelector('#comment-text').value.trim();
+
+    const currentPost = req.session.postID
 
     console.log(contents);
 
@@ -16,7 +16,7 @@ const commentFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/post');
         } else {
             alert('Cannot add comment');
         }
