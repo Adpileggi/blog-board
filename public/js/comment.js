@@ -1,9 +1,12 @@
 // const { response } = require("express");
 
 const commentFormHandler = async (event) => {
+    
     event.preventDefault();
 
     const contents = document.querySelector('#comment-text').value.trim();
+
+    console.log(contents);
 
     if (contents) {
         const response = await fetch('/api/comment', {
