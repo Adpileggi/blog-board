@@ -42,7 +42,14 @@ router.get('/post/:id', async (req, res) => {
             ],
         });
 
-        console.log('Data: ', postDb);
+        // console.log('Data: ', postDb);
+
+        req.session.save(() =>{
+            req.session.postId = postDb.id
+
+            console.log(req.session)
+            
+        });
 
         const posts = postDb.get({ plain: true });
 

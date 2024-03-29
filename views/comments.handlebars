@@ -1,31 +1,21 @@
-{{!-- show post that the user is commenting on? --}}
-<div>
-    <div class="post-div">
-        <div>
-            <h2>{{post.title}}</h2>
-        </div>
-        {{!-- display a single post --}}
-        <div>
-            <p>
-                Created by: {{!-- display username of post creator --}} on {{post.createdAt}}
-            </p>
-        </div>
-        <div>
-            <p>
-                {{post.contents}}
-            </p>
-        </div>
-    </div>
-
 {{!-- make text area for comment --}}
+<form class="comment-form">
+
     <div class="new-comment">
+
         <div>
-            <textarea class="comment-text"></textarea>
+            <label for="comment-text">Leave a Comment</label>
+            <textarea id="comment-text" rows="5" cols="70"></textarea>
         </div>
+
         <div>
-            <a href="update-comments">Submit</a>
+            <button type="submit">Add Comment</button>
         </div>
 
     </div>
-{{!-- make submit button for comment --}}
+
+</form>    
+
+{{!-- link script --}}
+<script scr="/js/comment.js"></script>
 
