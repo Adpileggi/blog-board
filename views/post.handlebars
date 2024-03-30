@@ -1,29 +1,34 @@
 
-<div>
-    <p>{{posts.title}} Created on {{posts.createdAt}} by {{posts.User.name}}</p>
-    <p>{{posts.contents}}</p>
+<div class="card">
+    <div class="card-body">
+        <h6 class="card-title">{{posts.title}} Created on {{posts.createdAt}} by {{posts.User.name}}</h6>
+        <p class="card-text">{{posts.contents}}</p>
+    </div>
 </div>
+
 <div>
-    <div>
-        <p>Comments:</p>
-        {{#each posts.Comments as |comment|}}
-        <p>{{comment.User.name}} commented:</p>
-        <p>{{comment.contents}}</p>
-        {{/each}}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Comments:</h5>
+            {{#each posts.Comments as |comment|}}
+            <h6>{{comment.User.name}} commented:</h6>
+            <p>{{comment.contents}}</p>
+            {{/each}}
+        </div>    
     </div>
 
     {{#if loggedIn}}
     <form class="comment-form">
 
-        <div class="new-comment">
+        <div class="new-comment form-label">
 
             <div>
                 <label for="comment-text">Leave a Comment</label>
-                <textarea id="comment-text" rows="5" cols="70"></textarea>
+                <textarea class="form-control" id="comment-text" rows="5" cols="70"></textarea>
             </div>
 
             <div>
-                <button type="submit">Add Comment</button>
+                <button class="btn btn-primary" type="submit">Add Comment</button>
             </div>
 
         </div>
