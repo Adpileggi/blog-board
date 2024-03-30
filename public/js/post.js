@@ -49,3 +49,6 @@ const postUpdateHandler = async (event) => {
 const postDeleteHandler = async (event) => {
     
 }
+
+document.querySelector('.new-post-form').addEventListener('submit', postCreateHandler)
+document.querySelector('.update-post-form').addEventListener('submit', postUpdateHandler)
