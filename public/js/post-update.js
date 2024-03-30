@@ -7,8 +7,12 @@ const postUpdateHandler = async (event) => {
     console.log(title)
     console.log(contents)
 
+    const currentUrl = window.location.href;
+    console.log(currentUrl.split("").pop());
+    const idValue = currentUrl.split("").pop()
+
     if(title && contents) {
-        const response = await fetch('/api/post/:id', {
+        const response = await fetch(`/api/post/${idValue}`, {
             method: 'PUT',
             body: JSON.stringify({ title, contents }),
             headers: { 'Content-Type': 'application/json' },

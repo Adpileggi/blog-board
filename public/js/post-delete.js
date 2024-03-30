@@ -1,10 +1,21 @@
-const postDeleteHandler = async (event) => {
 
-    const response = await fetch('api/post/', {
-        method: 'DELETE',
+const deleteBtn = document.querySelectorAll('.delete');
 
-    })
-    
-}
+// make a loop to add an event listener to all the button
+deleteBtn.forEach(function (button) {
+    button.addEventListener('click', async function(event) {
+        console.log(event.target.value)
+        const id = event.target.value
 
-// document.querySelectorAll('.delete-btn').addEventListener('submit', postDeleteHandler)
+        const response = await fetch(`api/post/${id}`, {
+            method: 'DELETE',
+        })
+        
+        if (response.ok) {
+            document.location.reload();
+            console.log('in the delete function')
+        } else {
+            alert('did not delete')
+        }
+    });
+});
