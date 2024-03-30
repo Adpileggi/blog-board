@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Post, User, Comment, } = require('../models');
+const withAuth = require('../utils/auth');
 
 // get route to all post
 router.get('/', async (req, res) => {
@@ -21,7 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 // route to view a single post
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         const postDb = await Post.findByPk(req.params.id, {
             include: [
@@ -62,7 +63,7 @@ router.get('/post/:id', async (req, res) => {
     };
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userDb = await User.findByPk(req.session.userPk, {
             include: [
@@ -91,7 +92,7 @@ router.get('/dashboard', async (req, res) => {
     }
 });
 
-router.get('/new-post', (req, res) => {
+router.get('/new-post', withAuth, (req, res) => {
     try {
         res.render('new-post')
     } catch (err) {
@@ -100,7 +101,7 @@ router.get('/new-post', (req, res) => {
     }
 });
 
-router.get('/update-post', (req, res) => {
+router.get('/update-post', withAuth, (req, res) => {
     try {
         res.render('update-post')
     } catch (err) {
