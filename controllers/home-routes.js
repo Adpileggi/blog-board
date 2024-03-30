@@ -91,6 +91,24 @@ router.get('/dashboard', async (req, res) => {
     }
 });
 
+router.get('/new-post', (req, res) => {
+    try {
+        res.render('new-post')
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+});
+
+router.get('/update-post', (req, res) => {
+    try {
+        res.render('update-post')
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err)
+    }
+});
+
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');

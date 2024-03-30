@@ -1,5 +1,3 @@
-// const { response } = require("express");
-
 const commentFormHandler = async (event) => {
 
     event.preventDefault();
