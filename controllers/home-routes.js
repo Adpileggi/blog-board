@@ -94,7 +94,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 router.get('/new-post', withAuth, (req, res) => {
     try {
-        res.render('new-post')
+    res.render('new-post', {loggedIn: req.session.loggedIn})
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
@@ -103,7 +103,7 @@ router.get('/new-post', withAuth, (req, res) => {
 
 router.get('/update-post', withAuth, (req, res) => {
     try {
-        res.render('update-post')
+        res.render('update-post', {loggedIn: req.session.loggedIn})
     } catch (err) {
         console.log(err);
         res.status(500).json(err)
