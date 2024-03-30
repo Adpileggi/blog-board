@@ -4,14 +4,14 @@
     </div>
     {{#each userData.Posts as |userPost|}}
     {{!-- make div clickable to lead to post.handlebars --}}
-    <div>
-        <p>{{userPost.title}} created on {{userPost.createdAt}}</p>
-        <p>{{userPost.contents}} </p>
+    <div class="card">
+        <div class="card-body">
+            <h6 class="card-title">{{userPost.title}} created on {{userPost.createdAt}}</h6>
+            <p class="card-text">{{userPost.contents}} </p>
+            <a href="/update-post" class="card-link">Update Post</a>
+            <a href="api/post/delete/{{userPost.id}}" class="card-link">Delete Post</a>
+        </div>    
     </div> 
-    <div>
-        <a href="/update-post">Update Post</a>
-        <a href="api/post/delete/{{userPost.id}}">Delete Post</a>
-    </div>
     {{/each }}
     </div>
         <a href="/new-post">Create a new Post</a>
