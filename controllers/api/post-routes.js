@@ -16,7 +16,8 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.delete('/delete/:id', async (req, res) => {
+// delete a post
+router.delete('/:id', async (req, res) => {
     try {
         const postData = await Post.destroy({
             where: {
@@ -34,14 +35,21 @@ router.delete('/delete/:id', async (req, res) => {
     }
 });
 
-router.put('/update/:id', async (req, res) => {
+// update a post
+router.put('/:id', async (req, res) => {
     try {
-        const postData = await Post.update(req.body, {
+        const postData = await Post.update({
+            title: req.body.title,
+            contents: req.body.contents
+        }, 
+        {
             where: {
                 id: req.params.id,
             },
         });
-        if (!postData[0]) {
+        console.log(postData)
+
+        if (!postData) {
             res.status(404).json({ message: 'No user with this id'});
             return;
         }

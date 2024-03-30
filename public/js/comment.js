@@ -6,6 +6,10 @@ const commentFormHandler = async (event) => {
 
     console.log(contents);
 
+    const currentUrl = window.location.href;
+    const idValue = currentUrl.split("").pop()
+    console.log(idValue)
+
     if (contents) {
         const response = await fetch('/api/comment', {
             method: 'POST',
@@ -14,7 +18,9 @@ const commentFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            console.log('hello')
+            document.location.reload;
+            // document.location.replace(`/post/${idValue}`);
         } else {
             alert('Cannot add comment');
         }

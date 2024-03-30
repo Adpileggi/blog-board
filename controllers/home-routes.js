@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 });
 
 // route to view a single post
+// add with auth
 router.get('/post/:id', withAuth, async (req, res) => {
     try {
         const postDb = await Post.findByPk(req.params.id, {
@@ -63,6 +64,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
     };
 });
 
+// add with auth
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userDb = await User.findByPk(req.session.userPk, {
@@ -92,7 +94,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     }
 });
 
-router.get('/new-post', withAuth, (req, res) => {
+router.get('/new-post', (req, res) => {
     try {
     res.render('new-post', {loggedIn: req.session.loggedIn})
     } catch (err) {
@@ -101,7 +103,7 @@ router.get('/new-post', withAuth, (req, res) => {
     }
 });
 
-router.get('/update-post', withAuth, (req, res) => {
+router.get('/update-post/:id', (req, res) => {
     try {
         res.render('update-post', {loggedIn: req.session.loggedIn})
     } catch (err) {

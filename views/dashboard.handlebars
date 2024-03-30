@@ -1,4 +1,4 @@
-<div>
+<div >
     <div>
         <h2>Dashboard</h2>
     </div>
@@ -8,17 +8,16 @@
         <div class="card-body">
             <h6 class="card-title">{{userPost.title}} created on {{userPost.createdAt}}</h6>
             <p class="card-text">{{userPost.contents}} </p>
-            <a href="/update-post" class="card-link">Update Post</a>
-            <a href="api/post/delete/{{userPost.id}}" class="card-link">Delete Post</a>
+            <a href="/update-post/{{userPost.id}}" class="card-link">Update Post</a>
+            <button value="{{userPost.id}}" class="btn btn-primary delete" type="submit">Delete</button>
         </div>    
     </div> 
     {{/each }}
     </div>
         <a href="/new-post">Create a new Post</a>
     </div>
+    <script src="/js/post-delete.js"></script>
 </div>
-
-<script src="/js/post.js"></script>
 
 {{!-- option to add a new blog post --}}
 {{!-- leads to new page to make a new blog post new post page or anthoner partial --}}
