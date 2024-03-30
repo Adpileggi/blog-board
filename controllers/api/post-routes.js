@@ -38,7 +38,11 @@ router.delete('/:id', async (req, res) => {
 // update a post
 router.put('/:id', async (req, res) => {
     try {
-        const postData = await Post.update(req.body, {
+        const postData = await Post.update({
+            title: req.body.title,
+            contents: req.body.contents
+        }, 
+        {
             where: {
                 id: req.params.id,
             },

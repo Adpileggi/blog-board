@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 
 // route to view a single post
 // add with auth
-router.get('/post/:id', async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         const postDb = await Post.findByPk(req.params.id, {
             include: [
@@ -65,7 +65,7 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // add with auth
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
         const userDb = await User.findByPk(req.session.userPk, {
             include: [
